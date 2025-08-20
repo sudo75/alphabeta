@@ -6,6 +6,8 @@ const app = express();
 
 const path = require('path');
 
+// Middleware
+app.use(express.json()); // to read json body
 
 // Define routes
 
