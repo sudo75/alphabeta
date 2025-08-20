@@ -8,6 +8,7 @@ module.exports = {
         MAX_LENGTH: 32
     },
     session_token: {
-        LENGTH: 12
+        LENGTH: 16, // 128 bit session id
+        EXPIRATION: 1000 * 60 * 60 // in ms
     }
 };

@@ -38,6 +38,8 @@ async function login(username, password) {
 
     // Set session token
     await db.query('UPDATE users SET session_token = ?, session_created_at = ? WHERE username = ?', [session_token, new Date(), username]);
+
+    return session_token;
 }
 
 module.exports = {
