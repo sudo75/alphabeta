@@ -4,5 +4,5 @@ CREATE TABLE IF NOT EXISTS users (
     `password` VARCHAR(32),
 
     session_token VARCHAR(255),
-    session_timestamp DATETIME
+    session_created_at DATETIME
 )

@@ -9,6 +9,10 @@ const path = require('path');
 // Middleware
 app.use(express.json()); // to read json body
 
+const cookie_parser = require('cookie-parser');
+app.use(cookie_parser());
+
+
 // Define routes
 
 const router_debug = require('./routes/debug.js');

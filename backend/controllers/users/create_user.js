@@ -13,10 +13,13 @@ module.exports = async (req, res) => {
         await create_user(username, password);
         res.status(201).json({message: 'User created!'});
     } catch (err) {
-        //console.error(err);
-        if (err.code === 'user_exists') {
-            return res.status(409).json({message: err.message});
+        switch (err.code) {
+            case 'user_exists':
+                res.status(409).json({message: err.message});
+                break;
+
+            default:
+                res.status(500).json({message: "Could not create user."});
         }
-        res.status(500).json({message: "Could not create user."});
     }
 };

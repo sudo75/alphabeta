@@ -12,19 +12,35 @@ async function create_user(username, password) {
 }
 
 async function userExists(username) {
-    try {
-        const sql = 'SELECT * FROM users WHERE username = ?';
-        const result = await db.query(sql, [username]);
+    const sql = 'SELECT * FROM users WHERE username = ?';
+    const [result] = await db.query(sql, [username]); // put result in braces to get first element -- rows, ignore fields (2nd element)
 
-        if (result[0]) return true;
+    if (result.length > 0) return true;
 
-        return false;
-    } catch (err) {
-        console.error(err);
-        throw new Error("Error determining if user exists.");
+    return false;
+
+}
+
+
+const generate_session_token = require('../utils/generate_session_token.js');
+async function login(username, password) {
+    const [result] = await db.query('SELECT password FROM users WHERE username = ?', [username]);
+    const stored_password = result[0]?.password;
+
+    const session_token = generate_session_token();
+
+    // Validate username & password
+    if (!stored_password || stored_password !== password) {
+        const err = new Error("Incorrect username or password.");
+        err.code = 'invalid_credentials';
+        throw err;
     }
+
+    // Set session token
+    await db.query('UPDATE users SET session_token = ?, session_created_at = ? WHERE username = ?', [session_token, new Date(), username]);
 }
 
 module.exports = {
-    create_user
+    create_user,
+    login
 };
