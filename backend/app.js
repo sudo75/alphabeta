@@ -15,6 +15,9 @@ app.use(cookie_parser());
 
 // Define routes
 
+const router_pages = require('./routes/pages.js');
+app.use('/', router_pages);
+
 const router_debug = require('./routes/debug.js');
 app.use('/api/debug', router_debug);
 
@@ -22,7 +25,7 @@ const router_users = require('./routes/users.js');
 app.use('/api/users', router_users);
 
 
-// Put last to prevent 404 errors
+// Put last to prevent 404 errors -- serve all public files as static files
 app.use(express.static(path.join(__dirname, '../public')));
 
 
