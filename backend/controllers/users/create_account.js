@@ -1,16 +1,16 @@
 const verify_username = require('../../utils/verify_username.js');
 const verify_password = require('../../utils/verify_password.js');
 
-const { create_user } = require('../../models/users.js');
+const { create_account } = require('../../models/users.js');
 
 module.exports = async (req, res) => {
     const {username, password} = req.body;
 
-    if (!verify_username(username)) res.status(400).json({message: 'Invalid username.'});
-    if (!verify_password(password)) res.status(400).json({message: 'Invalid password.'});
+    if (!verify_username(username)) return res.status(400).json({message: 'Invalid username.'});
+    if (!verify_password(password)) return res.status(400).json({message: 'Invalid password.'});
 
     try {
-        await create_user(username, password);
+        await create_account(username, password);
         res.status(201).json({message: 'User created!'});
     } catch (err) {
         switch (err.code) {

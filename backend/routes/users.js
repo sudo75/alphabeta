@@ -5,8 +5,8 @@ const router_users = express.Router();
 // Define routes -------------------------->
 
 // Create user
-const controller_create_user = require('../controllers/users/create_user.js');
-router_users.post('/create_user', controller_create_user);
+const controller_create_account = require('../controllers/users/create_account.js');
+router_users.post('/create_account', controller_create_account);
 
 // Login
 const controller_login = require('../controllers/users/login.js');
