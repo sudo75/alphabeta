@@ -15,21 +15,43 @@
 
     <main>
         <div class="auth_status">
-            <h2>Authentication status</h2>
+            <h2>Authentication status: </h2>
+            <p class="auth_info">Processing...</p>
         </div>
 
+        <hr style="width: 90%;">
+
         <div class="auth_container">
-            <div class="auth_menu" id="login">
-                
+            <div class="auth_menu" id="auth_menu_login">
+                <h2>Login</h2>
+                <p>Username</p>
+                <input type="text" placeholder="Create a username">
+                <p>Password</p>
+                <input type="text" placeholder="Create a password">
+
+                <hr style="width: 90%;">
+
+                <button id="create_account">Login</button>
             </div>
 
-            <div class="auth_menu" id="new_user">
-                
+            <div class="auth_menu" id="auth_menu_create_account">
+                <h2>Create Account</h2>
+                <p>Username</p>
+                <input type="text" placeholder="Create a username">
+                <p>Password</p>
+                <input type="text" placeholder="Create a password">
+                <p>Confirm password</p>
+                <input type="text" placeholder="Input password again">
+
+                <hr style="width: 90%;">
+
+                <button id="create_account">Create Account</button>
             </div>
 
         </div>
     </main>
 
     <script src="../global/page-header.js"></script>
+    <script src="./login.js"></script>
 </body>
 </html>

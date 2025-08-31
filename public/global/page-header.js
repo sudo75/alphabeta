@@ -11,7 +11,6 @@ class PageHeader extends HTMLElement {
             <style>
                 header {
                     width: 100%;
-                    min-width: 300px;
 
                     display: flex;
                     justify-content: center;
@@ -23,6 +22,8 @@ class PageHeader extends HTMLElement {
 
                     background-color: #b3e0ff;
                     box-sizing: border-box;
+
+                    border-bottom: 1px solid black;
                 }
 
                 .title {
