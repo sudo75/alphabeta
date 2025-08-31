@@ -1,6 +1,6 @@
 module.exports = {
     username: {
-        MIN_LENGTH: 8,
+        MIN_LENGTH: 4,
         MAX_LENGTH: 32
     },
     password: {
