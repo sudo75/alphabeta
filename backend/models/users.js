@@ -1,6 +1,6 @@
 const db = require('../db/db.js');
 
-async function create_user(username, password) {
+async function create_account(username, password) {
     if (await userExists(username)) {
         const err = new Error("User of specified username already exists.");
         err.code = "user_exists";
@@ -43,6 +43,6 @@ async function login(username, password) {
 }
 
 module.exports = {
-    create_user,
+    create_account,
     login
 };
