@@ -25,23 +25,23 @@
             <div class="auth_menu" id="auth_menu_login">
                 <h2>Login</h2>
                 <p>Username</p>
-                <input type="text" placeholder="Create a username">
+                <input id="login_username" type="text" placeholder="Create a username">
                 <p>Password</p>
-                <input type="text" placeholder="Create a password">
+                <input id="login_password" type="text" placeholder="Create a password">
 
                 <hr style="width: 90%;">
 
-                <button id="create_account">Login</button>
+                <button id="login">Login</button>
             </div>
 
             <div class="auth_menu" id="auth_menu_create_account">
                 <h2>Create Account</h2>
                 <p>Username</p>
-                <input type="text" placeholder="Create a username">
+                <input id="create_username" type="text" placeholder="Create a username">
                 <p>Password</p>
-                <input type="text" placeholder="Create a password">
+                <input id="create_password" type="text" placeholder="Create a password">
                 <p>Confirm password</p>
-                <input type="text" placeholder="Input password again">
+                <input id="create_password_confirm" type="text" placeholder="Input password again">
 
                 <hr style="width: 90%;">
 
@@ -52,6 +52,7 @@
     </main>
 
     <script src="../global/page-header.js"></script>
-    <script src="./login.js"></script>
+    <script src="./login.js" type="module"></script>
+    <script src="./authentication/account_creator.js" type="module"></script>
 </body>
 </html>
